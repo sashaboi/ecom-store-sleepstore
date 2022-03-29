@@ -1,0 +1,41 @@
+.category-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 2rem;
+    border: 1px solid rgba(0, 0, 0,0.5);
+    padding: 2rem;
+    width: 250px;
+}
+.category-card:hover{
+    background-color: rgba(128, 128, 128,0.2);
+}
+.category-title{
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+.desc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.action-button{
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    background-color: rgba(64, 163, 255,1);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+}
+
+.action-button:hover{
+    cursor: pointer;
+    background-color: rgba(64, 163, 255,0.8);
+}
