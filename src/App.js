@@ -10,7 +10,7 @@ import Login from "./pages/auth/login/Login"
 const App = () => {
   return (
     <div>
-      
+      {/* use location react router dom */}
       <Routes>
           <Route path="/mockman" element={<Mockman />}/>
           <Route path="/" element={<Homepage />}/>
