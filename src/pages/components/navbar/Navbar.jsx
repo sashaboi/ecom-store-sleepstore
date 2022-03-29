@@ -1,11 +1,14 @@
 import React from 'react'
 import {Link } from "react-router-dom"
+
 import '../navbar/navbar.css'
-const Navbar = () => {
+const Navbar = (mode) => {
+  console.log(mode);
+  const classnametext = mode.mode + " navbar-parent"
   return (
-    <div className='navbar-parent'>
+    <div className={classnametext}>
         
-          <ul className='left-menu'>
+          <ul className='left-menu '>
             <li><h1><Link to="/">Drone Store </Link></h1> </li>
           </ul>
           

@@ -7,11 +7,10 @@ import Cart from "./pages/cart/Cart";
 import Products from "./pages/products/Products";
 import SignUp from "./pages/auth/signup/SignUp"
 import Login from "./pages/auth/login/Login"
-import Navbar from './pages/components/navbar/Navbar';
 const App = () => {
   return (
     <div>
-      <Navbar/>
+      
       <Routes>
           <Route path="/mockman" element={<Mockman />}/>
           <Route path="/" element={<Homepage />}/>
