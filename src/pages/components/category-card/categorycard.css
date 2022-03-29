@@ -9,7 +9,7 @@
     width: 250px;
 }
 .category-card:hover{
-    background-color: rgba(128, 128, 128,0.2);
+    background-color: rgba(128, 128, 128,0.15);
 }
 .category-title{
     font-size: 3rem;

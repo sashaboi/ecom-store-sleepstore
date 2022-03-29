@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import CategoryCard from '../components/category-card/CategoryCard'
+import Navbar from '../components/navbar/Navbar'
 const Homepage = () => {
   const [categories , setcategories] = useState([])
   useEffect(()=>{
@@ -21,7 +22,13 @@ const Homepage = () => {
     })
   },[])
   return (
+    
     <div className='homepage'>
+      <Navbar mode={"home"}/>
+      <div className='banner-text'>
+      <p>Fly Now</p>
+      </div>
+      
       <img className='banner-img' src={banner} alt="" />
       
       <div className="quote">
