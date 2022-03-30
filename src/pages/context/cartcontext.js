@@ -17,7 +17,7 @@ const CartProvider = ({children}) =>{
         axios.get('/api/products')
         .then((response)=>{
             setoriginalproducts(response.data.products)
-            dispatch({type:"setcart",payload:response.data.products})
+            dispatch({type:"setProducts",payload:response.data.products})
             
           
         },
@@ -62,7 +62,7 @@ const CartProvider = ({children}) =>{
                 
                 return results
             }
-            case "setcart":{
+            case "setProducts":{
                 
                 const results = action.payload
                 
@@ -101,62 +101,7 @@ const CartProvider = ({children}) =>{
                 
                 return originalproducts
             }
-            case "addtocart":{
-                var token = localStorage.getItem('token');
-                token = '"'+token+'"'
-                const header = {
-                authorization: token
-                
-                }
-
-                // 
-                // 
-                // 
-                if (localcart.some((obj)=>obj._id ===action.payload._id)){
-                    
-                    const datatosend = {
-                        "action": {
-                        "type": "increment"
-                        }
-                    }
-                    // eslint-disable-next-line no-useless-concat
-                    const urltosend = '/api/user/cart' + '/'+ action.payload._id
-                    
-                    axios.post(urltosend,datatosend,{headers : header})
-                    .then((response)=>{
-                        console.log('incoming cart on increment : ',response.data.cart);
-                        setlocalcart(response.data.cart);
-                    },
-                    (error)=>{
-                        console.log('error aliye in increasing quantity',error);
-                    })
-                    return state
-                    
-                }else{
-                    
-                    setcartlength(cartlength+1)
-                    const producttosend = {
-                        "product":action.payload
-                    }
-                    
-                    axios.post('/api/user/cart',producttosend,{headers : header})
-                    .then((response)=>{
-                        console.log('incoming cart on first time add : ',response.data.cart);
-                        setlocalcart(response.data.cart);
-                    },
-                    (error)=>{
-                        console.log('error ali be : ', error);
-                    })
-                    return state
-                }
-                // 
-                // 
-                // 
-                
-                
-                
-                
-            }
+           
             default:{
                 console.log('default condition');
                 return state

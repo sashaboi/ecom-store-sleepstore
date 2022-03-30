@@ -7,6 +7,8 @@ import { useState } from 'react'
 import ProductCard from '../components/product-card/ProductCard'
 import { AiFillStar } from "react-icons/ai";
 import {useCart} from '../context/cartcontext' 
+
+
 const Products = () => {
   const {dispatch,state} = useCart();  
   const [localcategories , setlocalcategories] = useState([])

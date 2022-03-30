@@ -99,7 +99,7 @@ const CartCard = ({product}) => {
           <div className="qty-cart">
             <button disabled={disabled} onClick={()=>decrementHandler(product)} className="minusbutton qty-btn">
             {(product.qty >1)?"-":<BsTrashFill/>} 
-            </button>
+            </button> 
             {product.qty}
             <div onClick={()=>incrementproduct(product)} className="plusbutton  qty-btn">
               +

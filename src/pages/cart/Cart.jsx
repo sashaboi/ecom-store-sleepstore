@@ -50,7 +50,7 @@ const Cart = () => {
                 </div>
                 
                 <div className="price-value">
-                  ${total===0?0:total-delivery}
+                  ${total===0?0:total+delivery}
                 </div>
               </div>
             </div>
