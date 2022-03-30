@@ -5,16 +5,16 @@ import "../navbar/navbar.css";
 
 import { useCart } from "../../context/cartcontext";
 const Navbar = (mode) => {
-  const {cartlength } = useCart();
+  const {localcart} = useCart();
   
-  console.log(mode);
+  
   const classnametext = mode.mode + " navbar-parent";
   return (
     <div className={classnametext}>
       <ul className="left-menu ">
         <li>
           <h1>
-            <Link to="/">Drone Store </Link>
+            <Link to="/">The Drone Store </Link>
           </h1>{" "}
         </li>
       </ul>
@@ -41,7 +41,7 @@ const Navbar = (mode) => {
             {" "}
             <BsFillCartFill />{" "}
           </Link>
-          <div className="cart-nav-badge">{cartlength}</div>{" "}
+          <div className="cart-nav-badge">{localcart.length}</div>{" "}
         </li>
       </ul>
     </div>

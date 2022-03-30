@@ -7,16 +7,17 @@ import { useState } from 'react'
 import ProductCard from '../components/product-card/ProductCard'
 import { AiFillStar } from "react-icons/ai";
 import {useCart} from '../context/cartcontext' 
+
+
 const Products = () => {
   const {dispatch,state} = useCart();  
   const [localcategories , setlocalcategories] = useState([])
   const [inputvalue , setinputvalue] = useState(0)
-  console.log('reached products page , showing state :' ,state);
+  
   useEffect(()=>{
     
     axios.get('/api/categories')
     .then((response)=>{
-      console.log('useffect running from product page , axios to categories : ',response.data.categories);
       setlocalcategories(response.data.categories)
     },
     (error)=>{
