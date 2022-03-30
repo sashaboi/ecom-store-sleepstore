@@ -1,9 +1,13 @@
 import React from 'react'
-import Navbar from '../../components/navbar/Navbar'
-import '../login/login.css'
 import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+
+
+import Navbar from '../../components/navbar/Navbar'
+import '../login/login.css'
+
+
 const Login = () => {
   const [email , setemail] =useState('adarshbalika@gmail.com')
   const [password , setpassword] =useState('adarshbalika')
