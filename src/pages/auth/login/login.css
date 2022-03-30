@@ -1,0 +1,89 @@
+.login{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.login-parent  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.pagetitle{
+    padding-top: 3rem;
+    text-align: center;
+}
+.login-btn{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(#40a9ff,#1890ff);
+    color: white;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.secondary-btn{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    color: grey;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    font-size: 0.8rem;
+    
+    font-weight: 600;
+}
+.login-btn:hover{
+    
+    background: linear-gradient(#69c0ff,#40a9ff);
+}
+.secondary-btn:hover{
+    cursor: pointer;
+}
+.form-container{
+    background-color: rgba(128, 128, 128,0.3);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+}
+.form-container h3{
+    font-size: 2rem;
+    font-weight: 200;
+    letter-spacing: 0.05rem;
+}
+
+.form-container input[type="email"] , .form-container input[type="password"]{
+    width: 15rem;
+    height: 3rem;
+    border: none;
+    border-radius: 0.6rem;
+    text-align: center;
+}
+.extra-options{
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    align-items: center;
+    gap: 2rem;
+}
+.remember{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    justify-content: center;
+}
+.extra-options p:hover{
+    color: #40a9ff;
+    cursor: pointer;
+    text-decoration: underline;
+}

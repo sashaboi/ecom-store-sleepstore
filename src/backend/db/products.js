@@ -43,7 +43,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Phantom 4",
+    title: "Phantom 3",
     resolution: "4k",
     price: "2000",
     categoryName: "semi-pro",
@@ -54,7 +54,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Phantom 4",
+    title: "Phantom 2",
     resolution: "4k",
     price: "2000",
     categoryName: "semi-pro",
@@ -65,7 +65,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Phantom 4",
+    title: "Phantom 4pro",
     resolution: "4k",
     price: "2000",
     categoryName: "semi-pro",
@@ -76,7 +76,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    title: "Inspire 2",
+    title: "Inspire 2R",
     resolution: "8k",
     price: "10000",
     categoryName: "pro",
@@ -88,7 +88,7 @@ export const products = [
   
   {
     _id: uuid(),
-    title: "Inspire 2",
+    title: "Inspire 1",
     resolution: "8k",
     price: "10000",
     categoryName: "pro",

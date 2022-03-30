@@ -22,8 +22,27 @@
     
     background-color: black;
 }
+.cart-link-navbar{
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    
+}
+
+.cart-nav-badge{
+    color: black;
+    background-color: white;
+    height: max-content;
+    border-radius: 1rem;
+    padding-right: 0.3rem;
+    padding-left: 0.3rem;
+    font-size: 1rem;
+    margin-left: -1rem;
+    margin-bottom: -2rem;
 
 
+
+}
 
 
 
@@ -41,6 +60,8 @@
     gap: 2rem;
     padding-right: 2rem;
     text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
 }
 
 .left-menu {
