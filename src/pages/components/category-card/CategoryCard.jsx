@@ -1,6 +1,12 @@
 import React from 'react'
 import '../category-card/categorycard.css'
+import { useNavigate } from "react-router-dom";
+
 const CategoryCard = (obj) => {
+  let navigate = useNavigate();
+  const clickHandler = ()=>{
+    navigate('/products')
+  }
     console.log(obj);
   return (
     <div className='category-card'>
@@ -10,7 +16,7 @@ const CategoryCard = (obj) => {
         <div className="desc">
         {obj.category.description}
         </div>
-        <button className='action-button'>
+        <button onClick={()=>clickHandler()} className='action-button'>
             Action
         </button>
         

@@ -9,7 +9,7 @@ import Navbar from '../components/navbar/Navbar'
 const Homepage = () => {
   const [categories , setcategories] = useState([])
   useEffect(()=>{
-    console.log('use effect running');
+    
     
     axios.get('/api/categories')
     .then((response)=>{

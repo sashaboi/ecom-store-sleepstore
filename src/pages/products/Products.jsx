@@ -11,12 +11,11 @@ const Products = () => {
   const {dispatch,state} = useCart();  
   const [localcategories , setlocalcategories] = useState([])
   const [inputvalue , setinputvalue] = useState(0)
-  console.log('reached products page , showing state :' ,state);
+  
   useEffect(()=>{
     
     axios.get('/api/categories')
     .then((response)=>{
-      console.log('useffect running from product page , axios to categories : ',response.data.categories);
       setlocalcategories(response.data.categories)
     },
     (error)=>{

@@ -22,7 +22,7 @@ const SignUp = () => {
     
     axios.post('/api/auth/signup',data)
     .then((response)=>{
-      console.log('singup successful!',response.data.encodedToken);
+      
       localStorage.setItem('token', response.data.encodedToken);
       navigate('/products')
     },

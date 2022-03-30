@@ -2,8 +2,62 @@ import React from 'react'
 import '../product-card/productcard.css'
 import { AiOutlineStar,AiFillStar } from "react-icons/ai";
 import { useCart } from '../../context/cartcontext';
+import axios from 'axios'
+import { useState } from 'react';
 const ProductCard = ({product}) => {
-    const {dispatch}= useCart()
+    const [disabled , setdisabled] = useState(false)
+    const {setcartlength,cartlength ,localcart , setlocalcart}=useCart(); 
+    var token = localStorage.getItem('token');
+                token = '"'+token+'"'
+                const header = {
+                authorization: token
+                
+                }        
+            const datatosend = {
+                "action": {
+                "type": "increment"
+                }
+            } 
+
+
+    const addtocart = (product)=>{
+        setdisabled(true)
+        if (localcart.some((obj)=>obj._id ===product._id)){
+            
+            // eslint-disable-next-line no-useless-concat
+            const urltosend = '/api/user/cart' + '/'+ product._id
+            
+            axios.post(urltosend,datatosend,{headers : header})
+            .then((response)=>{
+
+                console.log('incoming cart on increment : ',response.data.cart);
+                setlocalcart(response.data.cart);
+                setdisabled(false)
+            },
+            (error)=>{
+                console.log('error aliye in increasing quantity',error);
+            })
+            
+            
+        }else{
+            console.log(product);
+            setcartlength(cartlength+1)
+            const producttosend = {
+                "product":product
+            }
+            
+            axios.post('/api/user/cart',producttosend,{headers : header})
+            .then((response)=>{
+                console.log('incoming cart on first time add : ',response.data.cart);
+                setlocalcart(response.data.cart);
+                setdisabled(false)
+            },
+            (error)=>{
+                console.log('error ali be : ', error);
+            })
+            
+        }
+    }
     
   return (
     <div className='before-card'>
@@ -34,9 +88,11 @@ const ProductCard = ({product}) => {
                 <div className='price'>
                     ${product.price}
                 </div>
-                <div onClick={()=>dispatch({type:"addtocart",payload:product})} className="addtocart">
-                    <p>Add to Cart</p>
-                </div>
+                <button disabled={disabled} className="addtocart" onClick={()=>{addtocart(product)}} >
+                
+                    Add to Cart
+                
+                </button>
             </div>
             
         </div>

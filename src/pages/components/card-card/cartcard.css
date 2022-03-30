@@ -34,3 +34,27 @@
     border-radius: 1rem;
     font-size: 1.2rem;
 }
+.qty-cart button{
+    border: none;
+}
+.qty-cart :hover{
+    cursor: pointer;
+}
+.minusbutton{
+    display: flex;
+
+}
+.plusbutton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-price{
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    color: white;
+    background-color:rgba(1, 1, 1,0.8) ;
+    border-radius: 0.5rem;
+    margin-bottom: 0.2rem;
+}

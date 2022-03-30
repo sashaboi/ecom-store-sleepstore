@@ -20,7 +20,7 @@ const Login = () => {
     
     axios.post('/api/auth/login',data)
     .then((response)=>{
-      console.log('login successful!',response.data.encodedToken);
+      
       localStorage.setItem('token', response.data.encodedToken);
       navigate('/products')
     },
