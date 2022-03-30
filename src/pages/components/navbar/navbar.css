@@ -80,4 +80,25 @@ a:hover{
     background-color: rgba(255, 255, 255,0.8);
     color: black;
 }
+.wishlist-navbar{
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+.wishlist-badge-manager{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wishlist-badge-manager p{
+    font-size: 1.2rem;
+    margin-top: -1.5rem;
+    margin-right: -1.5rem;
+    color: black;
+    background-color: white;
+    border-radius: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
 
