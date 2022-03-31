@@ -1,11 +1,16 @@
+import axios from 'axios'
 import React from 'react'
 import '../card-card/cartcard.css'
 import { useCart } from '../../context/cartcontext'
+import { useWishlist } from '../../context/wishlistcontext'
 import { BsTrashFill } from "react-icons/bs";
+import { AiFillHeart } from "react-icons/ai";
+
 import { useState } from 'react';
-import axios from 'axios'
+
 const CartCard = ({product}) => {
   const { localcart,setlocalcart} = useCart();
+  const {localWishList, setlocalWishList} = useWishlist();
   console.log(localcart);
   const [disabled , setdisabled] = useState(false)
   var token = localStorage.getItem('token');
@@ -26,6 +31,33 @@ const CartCard = ({product}) => {
     "type": "decrement"
     }
   } 
+  const wishlistdata = {
+    "product":product
+  } 
+  const addtoWishlist = (product) =>{
+    setdisabled(true)
+    if(localWishList.some((obj)=>obj._id === product._id)){
+      console.log("contains");
+      setdisabled(false)
+    }else{
+      console.log('doesnt contain');
+    
+
+    console.log('product is this',product);
+    const urltosend = "/api/user/wishlist/" 
+    axios.post(urltosend,wishlistdata,{headers : header})
+      .then((response)=>{
+        setlocalWishList(response.data.wishlist)
+        setdisabled(false)
+      },
+      (error)=>{
+        console.log(error); 
+      })
+    }
+  }
+
+
+
   const deleteproduct = (data) =>{
     console.log('delete is fired');
     const urltosend = '/api/user/cart/' + data._id
@@ -89,6 +121,10 @@ const CartCard = ({product}) => {
   return (
     <div className='cartcard'>
       <div className="img-section">
+        <button disabled={disabled} onClick={()=>addtoWishlist(product)} className="wishlistcaller">
+        <AiFillHeart/>
+        </button>
+        
         <img src={product.img} alt={product.title} />
       </div>
       <div className="info-section-cart">
