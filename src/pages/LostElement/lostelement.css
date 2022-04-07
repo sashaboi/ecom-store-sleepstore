@@ -1,0 +1,9 @@
+.lostpage-parent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.lostpage-parent img{
+    width: 500px;
+}

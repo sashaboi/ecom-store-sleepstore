@@ -1,0 +1,31 @@
+.alert{
+
+    width: 275px;
+    
+    padding: 0.75rem 1.25rem;
+    font-size: 1.2rem;
+}
+.info{
+    background-color: #b3ddff;
+    border: 1px solid #0077d9;
+    color: #004884;
+    font-weight: 700;
+}
+.alert-position{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9;
+}
+.error{
+    background-color: #ff9494;
+    border: 1px solid #8d0101;
+    color: #8d0101;
+    font-weight: 700;
+}
+.success{
+    background-color: #8aff99;
+    border: 1px solid #007610;
+    color: #007610;
+    font-weight: 700;
+}

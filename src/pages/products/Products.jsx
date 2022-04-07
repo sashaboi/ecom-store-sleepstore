@@ -6,11 +6,14 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import ProductCard from '../components/product-card/ProductCard'
 import { AiFillStar } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
 import {useCart} from '../context/cartcontext' 
-
+import Alert from '../components/Alert/Alert'
+import { useAlert } from '../context/AlertContext'
 
 const Products = () => {
-  const {dispatch,state} = useCart();  
+  const {dispatch,state} = useCart(); 
+  const  {alertstatus} = useAlert();
   const [localcategories , setlocalcategories] = useState([])
   const [inputvalue , setinputvalue] = useState(0)
   
@@ -18,6 +21,7 @@ const Products = () => {
     
     axios.get('/api/categories')
     .then((response)=>{
+      
       setlocalcategories(response.data.categories)
     },
     (error)=>{
@@ -28,6 +32,7 @@ const Products = () => {
   return (
     <div>
       <Navbar mode={"non-home"} />
+      { alertstatus && <Alert/>}
       <div className="title-section align-center">
       <h1 className='pagetitle'>Products</h1>
       <div className="hr-div"></div>
@@ -90,13 +95,16 @@ const Products = () => {
         <div className="products-section">
           <div className="title-section sub-title alignment">
             <h1>Products : {state.length}</h1>
+            <div className="search-bar">
+              <div className='search-icon'><BiSearch/></div><input onChange={(e)=>dispatch({type:'search',payload:e.target.value})} type="text" name="" id="" placeholder='Search' />
+            </div>
             <div className="categories-productpage">
             <p>Categories:</p>
-            <div className='product-categories'>{localcategories.map((obj)=><li onClick={()=>dispatch({type:"categoryfilter",payload:obj.categoryName})} className='category-in-products'>{obj.categoryName}</li>)}</div>
+            <div className='product-categories'>{localcategories.map((obj)=><li key={obj._id} onClick={()=>dispatch({type:"categoryfilter",payload:obj.categoryName})} className='category-in-products'>{obj.categoryName}</li>)}</div>
             </div>
           </div>
           <div className="product-listing">
-          {state.map((obj)=><ProductCard key={obj._id} product={obj} />)}
+          {state.map((obj)=><ProductCard renderclass = {"vertical"} key={obj._id} product={obj} />)}
           
           </div>
         </div>

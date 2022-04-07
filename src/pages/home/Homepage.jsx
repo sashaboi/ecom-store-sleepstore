@@ -6,9 +6,13 @@ import axios from 'axios'
 import { useState } from 'react'
 import CategoryCard from '../components/category-card/CategoryCard'
 import Navbar from '../components/navbar/Navbar'
+import { useAlert } from '../context/AlertContext'
+import Alert from '../components/Alert/Alert'
+
 
 // import arrange nicely global - components
 const Homepage = () => {
+  const {alertstatus} =useAlert();
   const [categories , setcategories] = useState([])
   useEffect(()=>{
     
@@ -27,6 +31,7 @@ const Homepage = () => {
     
     <div className='homepage'>
       <Navbar mode={"home"}/>
+      { alertstatus && <Alert/>}
       {/* page type  could replace mode */}
       <div className='banner-text'>
       <p>Fly Now</p>

@@ -3,8 +3,12 @@ import CartCard from '../components/card-card/CartCard'
 import '../cart/cart.css'
 import Navbar from '../components/navbar/Navbar'
 import { useCart } from '../context/cartcontext'
+import { useAlert } from '../context/AlertContext'
+import Alert from '../components/Alert/Alert'
+import EmptyState from '../components/emptystate/EmptyState'
 const Cart = () => {
   const delivery = 150
+  const {alertstatus} =useAlert();
   const {localcart} = useCart();
   const pricereducer = (acc,val)=>{
     acc= acc +(Number(val.price) * Number(val.qty))
@@ -15,12 +19,12 @@ const Cart = () => {
   return (
     <div className='parent-cart'>
       <Navbar mode={"non-home"} />
-      
+      { alertstatus && <Alert/>}
       <h1 className='pagetitle'>Cart</h1>
       <div className="hr-div"></div>
       <div className="cart-container">
         <div className="cart-product">
-        {localcart.map((obj)=><CartCard key={obj._id} product = {obj}/>)}
+        {localcart.length===0?<EmptyState/>:localcart.map((obj)=><CartCard key={obj._id} product = {obj}/>)}
         </div>
         <div className="cart-total">
           <div className="calc-container">

@@ -7,8 +7,9 @@ import { BsTrashFill } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 
 import { useState } from 'react';
-
+import { useAlert } from '../../context/AlertContext'
 const CartCard = ({product}) => {
+  const {showalert}= useAlert();
   const { localcart,setlocalcart} = useCart();
   const {localWishList, setlocalWishList} = useWishlist();
   console.log(localcart);
@@ -37,6 +38,7 @@ const CartCard = ({product}) => {
   const addtoWishlist = (product) =>{
     setdisabled(true)
     if(localWishList.some((obj)=>obj._id === product._id)){
+      showalert({text:"Item already in wishlist",alerttype:"error"})
       console.log("contains");
       setdisabled(false)
     }else{
@@ -48,6 +50,7 @@ const CartCard = ({product}) => {
     axios.post(urltosend,wishlistdata,{headers : header})
       .then((response)=>{
         setlocalWishList(response.data.wishlist)
+        showalert({text:"Item Added to Wishlist!",alerttype:"info"})
         setdisabled(false)
       },
       (error)=>{
@@ -65,6 +68,7 @@ const CartCard = ({product}) => {
     axios.delete(urltosend,{headers : header})
     .then((response)=>{
       setlocalcart(response.data.cart)
+      showalert({text:"Product removed from cart!",alerttype:"info"})
       console.log(response.data.cart);
       
     },
@@ -133,11 +137,11 @@ const CartCard = ({product}) => {
         </div>
         <div className="details-cart">
           <div className="qty-cart">
-            <button disabled={disabled} onClick={()=>decrementHandler(product)} className="minusbutton qty-btn">
+            <button disabled={disabled} onClick={()=>decrementHandler(product)} className="minusbutton fixedwidth qty-btn">
             {(product.qty >1)?"-":<BsTrashFill/>} 
             </button> 
             {product.qty}
-            <div onClick={()=>incrementproduct(product)} className="plusbutton  qty-btn">
+            <div onClick={()=>incrementproduct(product)} className=" fixedwidth plusbutton  qty-btn">
               +
             </div>
           </div>
