@@ -101,7 +101,7 @@ const CartProvider = ({children}) =>{
             case "search":{
                 
                 
-                const results = originalproducts.filter((obj) => obj.title.includes(action.payload) );
+                const results = originalproducts.filter((obj) => obj.title.toUpperCase().includes(action.payload.toUpperCase()) );
                 
                 return results
             }

@@ -10,11 +10,11 @@ import { useAlert } from '../../context/AlertContext'
 
 const ProductCard = ({product,renderclass}) => {
     let navigate = useNavigate();
-    console.log(renderclass);
+    
     const  {showalert} = useAlert();
     const [disabled , setdisabled] = useState(false)
     const [addtocartbtn , setaddtocartbtn] =useState({text:"Add to Cart",class:"addtocart"})
-    // const [cartorgoto , setcartorgoto] = useState("cart")
+    
     const {setcartlength,cartlength ,localcart , setlocalcart}=useCart(); 
     var token = localStorage.getItem('token');
     token = '"'+token+'"'
@@ -109,9 +109,7 @@ const ProductCard = ({product,renderclass}) => {
                     ${product.price}
                 </div>
                 <button disabled={disabled} className={addtocartbtn.class} onClick={()=>{addtocart(product)}} >
-                    {/* {console.log(cartorgoto);}
-                    {cartorgoto === "cart" ? <div>Add to Cart</div> :<div>add one more</div>}
-                    */}
+                    
                 {addtocartbtn.text}
                 </button>
             </div>
