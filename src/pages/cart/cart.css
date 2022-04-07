@@ -11,10 +11,9 @@
     gap: 1rem;
 }
 .cart-container{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     gap: 2rem;
 }
 .calc-container{

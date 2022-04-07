@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 import Navbar from '../../components/navbar/Navbar'
 import '../login/login.css'
-
+import { useAlert } from '../../context/AlertContext';
 
 const SignUp = () => {
+  const {showalert}= useAlert();
   const [email , setemail] =useState('adarshbalak@gmail.com')
   const [password , setpassword] =useState('adarshbalika')
   const data = {
@@ -22,7 +23,7 @@ const SignUp = () => {
     
     axios.post('/api/auth/signup',data)
     .then((response)=>{
-      
+      showalert({text:"Signed up successfully",alerttype:"success"})
       localStorage.setItem('token', response.data.encodedToken);
       navigate('/products')
     },

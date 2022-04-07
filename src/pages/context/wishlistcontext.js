@@ -13,12 +13,13 @@ const WishListProvider = ({children}) =>{
     
     useEffect(()=>{
         var token = localStorage.getItem('token');
-        token = '"'+token+'"'
+        
         const header = {
         authorization: token
         }     
-        
-        axios.get('/api/user/wishlist',{headers : header})
+        if (token){
+            token = '"'+token+'"'
+            axios.get('/api/user/wishlist',{headers : header})
         .then((response)=>{
             
             WishListdispatch({type:"setWishList",payload:response.data.wishlist})
@@ -29,6 +30,8 @@ const WishListProvider = ({children}) =>{
           console.log(error);
           
         })
+        }
+        
     
         
     

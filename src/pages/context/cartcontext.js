@@ -4,9 +4,11 @@ import { children } from "react";
 import { useReducer } from "react";
 import axios from 'axios'
 import { useState ,useEffect } from "react";
+import { useAlert } from "./AlertContext";
 const CartContext = createContext();
 
 const CartProvider = ({children}) =>{
+    const {showalert} = useAlert();
     const [ originalproducts , setoriginalproducts] = useState([])
     const [ cartlength , setcartlength] = useState(0)
     const [localcart , setlocalcart ]= useState([])
@@ -96,9 +98,16 @@ const CartProvider = ({children}) =>{
                 
                 return results
             }
+            case "search":{
+                
+                
+                const results = originalproducts.filter((obj) => obj.title.includes(action.payload) );
+                
+                return results
+            }
             case "reset":{
                 
-                
+                showalert({text:"Filters have been Reset",alerttype:"info"})
                 return originalproducts
             }
            

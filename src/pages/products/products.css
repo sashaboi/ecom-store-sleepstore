@@ -24,6 +24,23 @@
     font-size: 3rem;
     font-weight: 200;
 }
+.search-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.search-icon{
+    font-size: 2rem;
+    margin-right: -2.5rem;
+    z-index: 2;
+    color: grey;
+}
+.search-bar input{
+    padding: 1rem 2rem 1rem 3rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+}
 .align-center{
     display: flex;
     flex-direction: column;
